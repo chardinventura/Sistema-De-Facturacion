@@ -4,9 +4,14 @@
     ViewBag.Title = "Create";
 }
 
+<h2>Create</h2>
+
+@ViewBag.xd
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+
     <div class="form-horizontal">
         <h4>EntradaMercancia</h4>
         <hr />
@@ -16,17 +21,17 @@
             <div class="col-md-10">
                 @Html.DropDownList("producto_id", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.producto_id, "", new { @class = "text-danger" })
-                <input type="submit" value="Buscar" class="btn btn-default" />
-                <input type="text" disabled placeholder="@ViewBag.nombrePv" />
             </div>
         </div>
-    </div>
-}
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.proveedor_id, "proveedor_id", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("proveedor_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.proveedor_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.Cantidad, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

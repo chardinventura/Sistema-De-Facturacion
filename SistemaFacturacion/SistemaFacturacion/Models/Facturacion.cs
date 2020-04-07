@@ -15,12 +15,25 @@ namespace SistemaFacturacion.Models
 
         public decimal? Descuento { get; set; }
 
-        public decimal? Itbis { get; set; }
-
         public decimal? Monto { get; set; }
 
         public DateTime? Fecha { get; set; }
 
         public virtual Cliente Cliente { get; set; }
+
+        public decimal descuento(decimal cantidad, string categoriaCliente)
+        {
+            if (categoriaCliente.Equals("premium"))
+                cantidad -= (cantidad * 0.25m);
+
+            return cantidad;
+        }
+
+        public decimal itbis(decimal cantidad)
+        {
+            cantidad += (cantidad * 0.18m);
+
+            return cantidad;
+        }
     }
 }

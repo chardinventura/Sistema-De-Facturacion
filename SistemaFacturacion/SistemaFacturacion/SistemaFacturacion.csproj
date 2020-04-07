@@ -131,6 +131,7 @@
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\ComprasController.cs" />
     <Compile Include="Controllers\EntradaMercanciasController.cs" />
+    <Compile Include="Controllers\FacturacionsController.cs" />
     <Compile Include="Controllers\ProductoesController.cs" />
     <Compile Include="Controllers\ProveedoresController.cs" />
     <Compile Include="Global.asax.cs">
@@ -204,6 +205,11 @@
     <Content Include="Views\Compras\Details.cshtml" />
     <Content Include="Views\Compras\Edit.cshtml" />
     <Content Include="Views\Compras\Index.cshtml" />
+    <Content Include="Views\Facturacions\Create.cshtml" />
+    <Content Include="Views\Facturacions\Delete.cshtml" />
+    <Content Include="Views\Facturacions\Details.cshtml" />
+    <Content Include="Views\Facturacions\Edit.cshtml" />
+    <Content Include="Views\Facturacions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

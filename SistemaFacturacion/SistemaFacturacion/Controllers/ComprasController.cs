@@ -53,6 +53,7 @@ namespace SistemaFacturacion.Controllers
         {
             if (ModelState.IsValid)
             {
+                compra.Fecha = DateTime.Now;
                 db.Compras.Add(compra);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -89,6 +90,7 @@ namespace SistemaFacturacion.Controllers
         {
             if (ModelState.IsValid)
             {
+                compra.Fecha = DateTime.Now;
                 db.Entry(compra).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

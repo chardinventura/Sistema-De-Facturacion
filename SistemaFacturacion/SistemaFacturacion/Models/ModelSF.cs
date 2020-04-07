@@ -57,10 +57,6 @@ namespace SistemaFacturacion.Models
                 .HasPrecision(18, 0);
 
             modelBuilder.Entity<Facturacion>()
-                .Property(e => e.Itbis)
-                .HasPrecision(18, 0);
-
-            modelBuilder.Entity<Facturacion>()
                 .Property(e => e.Monto)
                 .HasPrecision(18, 0);
 
