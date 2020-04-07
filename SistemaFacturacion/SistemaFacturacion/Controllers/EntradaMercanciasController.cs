@@ -29,15 +29,12 @@ namespace SistemaFacturacion.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,producto_id,proveedor_id,Cantidad,Fecha")] EntradaMercancia entradaMercancia)
         {
-            var existenciaStock = from s in db.Stocks where s.producto_id == entradaMercancia.producto_id select s;
+            var existenciaStock = db.Stocks.SingleOrDefault(s => s.producto_id == entradaMercancia.producto_id);
 
             if (ModelState.IsValid)
             {
-                if (existenciaStock.Any())
-                {
-                    foreach (var item in existenciaStock)
-                        db.Stocks.SingleOrDefault(s => s.Id == item.Id).Cantidad += entradaMercancia.Cantidad;
-                }
+                if (existenciaStock != null)
+                    db.Stocks.SingleOrDefault(s => s.Id == existenciaStock.Id).Cantidad += entradaMercancia.Cantidad;
                 else
                     db.Stocks.Add(new Stock()
                     {
