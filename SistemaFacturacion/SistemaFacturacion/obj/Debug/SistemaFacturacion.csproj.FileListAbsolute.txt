@@ -76,3 +76,7 @@ C:\Users\chard\Desktop\SistemaFacturacion\SistemaFacturacion\SistemaFacturacion\
 C:\Users\chard\Desktop\SistemaFacturacion\SistemaFacturacion\SistemaFacturacion\obj\Debug\SistemaFacturacion.csproj.CopyComplete
 C:\Users\chard\Desktop\SistemaFacturacion\SistemaFacturacion\SistemaFacturacion\obj\Debug\SistemaFacturacion.dll
 C:\Users\chard\Desktop\SistemaFacturacion\SistemaFacturacion\SistemaFacturacion\obj\Debug\SistemaFacturacion.pdb
+C:\Users\chard\Desktop\SistemaFacturacion\SistemaFacturacion\SistemaFacturacion\bin\EntityFramework.dll
+C:\Users\chard\Desktop\SistemaFacturacion\SistemaFacturacion\SistemaFacturacion\bin\EntityFramework.SqlServer.dll
+C:\Users\chard\Desktop\SistemaFacturacion\SistemaFacturacion\SistemaFacturacion\bin\EntityFramework.xml
+C:\Users\chard\Desktop\SistemaFacturacion\SistemaFacturacion\SistemaFacturacion\bin\EntityFramework.SqlServer.xml

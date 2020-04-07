@@ -131,7 +131,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Compra.cs" />
+    <Compile Include="Models\EntradaMercancia.cs" />
+    <Compile Include="Models\Facturacion.cs" />
     <Compile Include="Models\ModelSF.cs" />
+    <Compile Include="Models\Producto.cs" />
+    <Compile Include="Models\Proveedore.cs" />
+    <Compile Include="Models\Stock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
