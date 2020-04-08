@@ -5,6 +5,7 @@ using System.Web;
 using SistemaFacturacion.Models;
 using System.Web.Mvc;
 using System.Data.Entity;
+using Rotativa;
 
 namespace SistemaFacturacion.Controllers
 {
@@ -55,6 +56,7 @@ namespace SistemaFacturacion.Controllers
 
             return View(db.Clientes.ToList());
         }
+
         public ActionResult Proveedores(string query, string seleccion)
         {
             if (!string.IsNullOrEmpty(query))
@@ -148,6 +150,11 @@ namespace SistemaFacturacion.Controllers
             }
 
             return View(db.Facturacions.ToList());
+        }
+
+        public ActionResult GenerarPDF(string action)
+        {
+            return new ActionAsPdf(action);
         }
     }
 }

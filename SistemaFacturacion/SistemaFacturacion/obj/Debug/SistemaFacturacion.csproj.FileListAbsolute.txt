@@ -80,3 +80,4 @@ C:\Users\chard\Desktop\SistemaFacturacion\SistemaFacturacion\SistemaFacturacion\
 C:\Users\chard\Desktop\SistemaFacturacion\SistemaFacturacion\SistemaFacturacion\bin\EntityFramework.SqlServer.dll
 C:\Users\chard\Desktop\SistemaFacturacion\SistemaFacturacion\SistemaFacturacion\bin\EntityFramework.xml
 C:\Users\chard\Desktop\SistemaFacturacion\SistemaFacturacion\SistemaFacturacion\bin\EntityFramework.SqlServer.xml
+C:\Users\chard\Desktop\SistemaFacturacion\SistemaFacturacion\SistemaFacturacion\bin\Rotativa.dll

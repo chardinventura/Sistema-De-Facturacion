@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "Consultas";
+}
+
+
+<br />
+<br />
+<div class="text-center" style="margin-right:250px;">
+    <h1>Inicio</h1>
+
+</div>
+<br />
+<br />
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <h2>Productos</h2>
+        <p>
+            Funciones:
+            <ul class="list-unstyled text-uppercase">
+                <li>- Insertar</li>
+                <li>- Editar</li>
+                <li>- Eliminar</li>
+            </ul>
+        </p>
+        <p>@Html.ActionLink("Administrar", "Index", "Productoes", "", new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Clientes</h2>
+        <p>
+            Funciones:
+            <ul class="list-unstyled">
+                <li>- Insertar</li>
+                <li>- Editar</li>
+                <li>- Modificar</li>
+            </ul>
+        </p>
+        <p>@Html.ActionLink("Administar", "Index", "Clientes", "", new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Proveedores</h2>
+        <p>
+            Funciones:
+            <ul class="list-unstyled">
+                <li>- Insertar</li>
+                <li>- Editar</li>
+                <li>- Modificar</li>
+            </ul>
+        </p>
+        <p>@Html.ActionLink("Administar", "Index", "Proveedores", "",  new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Facturaciones</h2>
+        Funcion:
+        <ul class="list-unstyled">
+            <li>- Facturar</li>
+        </ul>
+        <p>@Html.ActionLink("Administar", "Create", "Facturacions", "", new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Entradas</h2>
+        Funciones:
+        <ul class="list-unstyled">
+            <li>- Agregar a Stock</li>
+        </ul>
+        <p>@Html.ActionLink("Administar", "Create", "EntradaMercancias", "", new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Consultas</h2>
+        Funcion:
+        <ul class="list-unstyled">
+            <li>- Realizar consultas</li>
+        </ul>
+        <p>@Html.ActionLink("Administar", "Index", "Consultas", "", new { @class = "btn btn-default" })</p>
+    </div>
+</div>
