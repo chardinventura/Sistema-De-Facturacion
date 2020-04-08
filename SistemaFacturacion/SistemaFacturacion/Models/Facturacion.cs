@@ -23,7 +23,7 @@ namespace SistemaFacturacion.Models
 
         public decimal descuento(decimal cantidad, string categoriaCliente)
         {
-            if (categoriaCliente.Equals("premium"))
+            if (categoriaCliente.ToLower().Equals("premium"))
                 cantidad -= (cantidad * 0.25m);
 
             return cantidad;

@@ -5,7 +5,6 @@ using System.Web;
 using SistemaFacturacion.Models;
 using System.Web.Mvc;
 using System.Data.Entity;
-using System.Linq;
 
 namespace SistemaFacturacion.Controllers
 {
@@ -25,9 +24,34 @@ namespace SistemaFacturacion.Controllers
 
             return View(db.Productos.ToList());
         }
-        public ActionResult Clientes()
+        public ActionResult Clientes(string query, string seleccion, string opcion)
         {
-            return View();
+            if (!string.IsNullOrEmpty(query))
+            {
+                if(opcion.Equals("0"))
+                    return View(db.Clientes.Where(p => p.Nombre == query));
+                else
+                {
+                    if (seleccion.Equals("0"))
+                        return View(db.Clientes.ToList());
+                    else if(seleccion.Equals("1"))
+                        return View(db.Clientes.Where(c => c.Categoria == "premium"));
+                    else
+                        return View(db.Clientes.Where(c => c.Categoria == "regular"));
+                }
+            }
+
+            if (!string.IsNullOrEmpty(seleccion))
+            {
+                if (seleccion.Equals("0"))
+                    return View(db.Clientes.ToList());
+                else if (seleccion.Equals("1"))
+                    return View(db.Clientes.Where(c => c.Categoria == "premium"));
+                else
+                    return View(db.Clientes.Where(c => c.Categoria == "regular"));
+            }
+
+            return View(db.Clientes.ToList());
         }
         public ActionResult Proveedores(string query, string seleccion)
         {

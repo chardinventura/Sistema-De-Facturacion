@@ -8,15 +8,15 @@
 
 @using (Html.BeginForm())
 {
-    <P>
-        @Html.TextBox("query")
-        @Html.DropDownList("seleccion", new List<SelectListItem>
-   {
-        new SelectListItem{Text = "Nombre", Value = "0", Selected = true},
-        new SelectListItem{Text = "Email", Value = "1"}
-   })
-        <input type="submit" value="Buscar" />
-    </P>
+<P>
+    @Html.TextBox("query")
+    @Html.DropDownList("seleccion", new List<SelectListItem>
+{
+    new SelectListItem{Text = "Nombre", Value = "0", Selected = true},
+    new SelectListItem{Text = "Email", Value = "1"}
+})
+    <input type="submit" value="Buscar" />
+</P>
 }
 
 <table class="table">

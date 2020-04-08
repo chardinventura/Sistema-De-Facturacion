@@ -1,7 +1,67 @@
-﻿
+﻿@model IEnumerable<SistemaFacturacion.Models.Cliente>
+
 @{
-    ViewBag.Title = "Clientes";
+    ViewBag.Title = "Consulta de clientes";
 }
 
 <h2>Clientes</h2>
 
+@using (Html.BeginForm())
+{
+<P>
+    @Html.TextBox("query")
+    @Html.DropDownList("seleccion", new List<SelectListItem>
+{
+    new SelectListItem{Text = "Todos", Value = "0", Selected = true},
+    new SelectListItem{Text = "Premium", Value = "1",},
+    new SelectListItem{Text = "Regular", Value = "2"}
+})
+    @Html.RadioButton("opcion", "0", true)Nombre
+    @Html.RadioButton("opcion", "1")Categoria
+    <input type="submit" value="Buscar" />
+</P>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cedula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria)
+            </td>
+        </tr>
+    }
+
+</table>
