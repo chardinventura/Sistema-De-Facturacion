@@ -48,15 +48,24 @@ namespace SistemaFacturacion.Models
 
         public decimal promedio(List<Facturacion> list)
         {
-            return list.Sum(f => f.Monto) / list.Count;
+            if (list.Count != 0)
+                return list.Average(f => f.Monto);
+            else
+                return 0;
         }
         public decimal valorMinimo(List<Facturacion> list)
         {
-            return list.Min(f => f.Monto);
+            if (list.Count != 0)
+                return list.Min(f => f.Monto);
+            else
+                return 0;
         }
         public decimal valorMaximo(List<Facturacion> list)
         {
-            return list.Max(f => f.Monto);
+            if (list.Count != 0)
+                return list.Max(f => f.Monto);
+            else
+                return 0;
         }
     }
 }

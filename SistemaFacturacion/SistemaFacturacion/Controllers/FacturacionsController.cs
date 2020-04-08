@@ -41,10 +41,10 @@ namespace SistemaFacturacion.Controllers
                 facturacion.Descuento = descuento;
                 facturacion.Monto = monto;
                 facturacion.Fecha = DateTime.Now;
-
+                db.Compras.RemoveRange(db.Compras.ToList());
                 db.Facturacions.Add(facturacion);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Facturaciones", "Consultas");
             }
 
             ViewBag.cliente_id = new SelectList(db.Clientes, "Id", "Cedula", facturacion.cliente_id);

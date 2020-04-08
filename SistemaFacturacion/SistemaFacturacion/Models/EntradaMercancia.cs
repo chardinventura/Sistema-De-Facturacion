@@ -31,10 +31,12 @@ namespace SistemaFacturacion.Models
         {
             return list.Sum(e => e.Cantidad);
         }
-
         public double promedio(List<EntradaMercancia> list)
         {
-            return list.Sum(e => e.Cantidad) / list.Count;
+            if (list.Count != 0)
+                return list.Average(e => e.Cantidad);
+            else
+                return 0;
         }
     }
 }

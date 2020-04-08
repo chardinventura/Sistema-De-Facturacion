@@ -8,18 +8,19 @@
 
 @using (Html.BeginForm())
 {
-    <P>
-        @Html.TextBox("query")
-        @Html.DropDownList("seleccion", new List<SelectListItem>
-    {
-        new SelectListItem{Text = "Cliente", Value = "0", Selected = true},
-        new SelectListItem{Text = "Fecha", Value = "1",}
-    })
-        Ver sumatoria, conteo, promedio de los resultados, valor minimo, valor maximo.
-        Si @Html.RadioButton("opcion", "0", true)
-        No @Html.RadioButton("opcion", "1")
-        <input type="submit" value="Buscar" />
-    </P>
+<P>
+    <input type="hidden" id="fecha" name="fecha"/>
+    <input type="text" id="query" name="query" />
+    @Html.DropDownList("seleccion", new List<SelectListItem>
+{
+    new SelectListItem{Text = "Cliente", Value = "0", Selected = true},
+    new SelectListItem{Text = "Fecha", Value = "1",}
+})
+    Ver sumatoria, conteo, promedio de los resultados, valor minimo, valor maximo.
+    Si @Html.RadioButton("opcion", "0", true)
+    No @Html.RadioButton("opcion", "1")
+    <input type="submit" value="Buscar" />
+</P>
 }
 
 @ViewBag.sumatoria
@@ -65,3 +66,19 @@
 
 </table>
 <button onclick="generatePDF()" style="float:right;">Generar PDF</button>
+
+<script>
+    var mySelect = document.getElementById('seleccion');
+
+    mySelect.onchange = function () {
+
+        if (mySelect.value == '0') {
+            document.getElementById('fecha').type = 'hidden';
+            document.getElementById('query').type = 'text';
+
+        } else {
+            document.getElementById('fecha').type = 'date';
+            document.getElementById('query').type = 'hidden';
+        }
+    }
+</script>
