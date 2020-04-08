@@ -22,16 +22,24 @@ namespace SistemaFacturacion.Controllers
         {
             if(query != "" && query != null)
                 return View(db.Productos.Where(p => p.Nombre == query));
-            else
-                return View(db.Productos.ToList());
+
+            return View(db.Productos.ToList());
         }
         public ActionResult Clientes()
         {
             return View();
         }
-        public ActionResult Proveedores()
+        public ActionResult Proveedores(string query, string seleccion)
         {
-            return View();
+            if (query != "" && query != null)
+            {
+                if(seleccion.Equals("0"))
+                    return View(db.Proveedores.Where(p => p.Nombre == query));
+                else
+                    return View(db.Proveedores.Where(p => p.Email == query));
+            }
+
+            return View(db.Proveedores.ToList());
         }
         public ActionResult Entradas()
         {
