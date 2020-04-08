@@ -1,20 +1,16 @@
 ﻿@model IEnumerable<SistemaFacturacion.Models.Producto>
 
-@{
-    ViewBag.Title = "Productos";
-}
-
 <h2>Productos</h2>
 
 @using (Html.BeginForm())
 {
 <P>
-    @Html.TextBox("query")
-    <input type="submit" value="Buscar" />
+    @Html.TextBox("query", "", htmlAttributes: new { @class = "form-control col-md-1" })
+    <input type="submit" value="Buscar" class="btn btn-default" style="margin-left:5px;"/>
 </P>
 }
 
-<table class="table">
+<table class="table table-striped table-bordered">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Nombre)
@@ -22,7 +18,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Precio)
         </th>
-        <th></th>
     </tr>
 
     @foreach (var item in Model)

@@ -46,7 +46,7 @@ namespace SistemaFacturacion.Controllers
                 db.EntradaMercancias.Add(entradaMercancia);
                 db.SaveChanges();
 
-                return RedirectToAction("Index", "Clientes");
+                return RedirectToAction("Index", "Home");
             }
 
             ViewBag.producto_id = new SelectList(db.Productos, "Id", "Nombre", entradaMercancia.producto_id);
