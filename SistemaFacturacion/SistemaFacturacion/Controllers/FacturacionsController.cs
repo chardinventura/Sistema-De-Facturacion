@@ -19,7 +19,7 @@ namespace SistemaFacturacion.Controllers
         {
             var compras = db.Compras.Include(c => c.Cliente).Include(c => c.Producto);
 
-            ViewBag.cliente_id = new SelectList(db.Clientes, "Id", "Cedula");
+            ViewBag.cliente_id = new SelectList(db.Clientes, "Id", "Nombre");
 
             return View(compras.ToList());
         }
