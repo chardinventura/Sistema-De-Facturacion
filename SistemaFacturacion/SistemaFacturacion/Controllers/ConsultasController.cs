@@ -19,7 +19,7 @@ namespace SistemaFacturacion.Controllers
         }
         public ActionResult Productos(string query)
         {
-            if(query != "" && query != null)
+            if(!string.IsNullOrEmpty(query))
                 return View(db.Productos.Where(p => p.Nombre == query));
 
             return View(db.Productos.ToList());
@@ -55,7 +55,7 @@ namespace SistemaFacturacion.Controllers
         }
         public ActionResult Proveedores(string query, string seleccion)
         {
-            if (query != "" && query != null)
+            if (!string.IsNullOrEmpty(query))
             {
                 if(seleccion.Equals("0"))
                     return View(db.Proveedores.Where(p => p.Nombre == query));
@@ -65,9 +65,22 @@ namespace SistemaFacturacion.Controllers
 
             return View(db.Proveedores.ToList());
         }
-        public ActionResult Entradas()
+        public ActionResult Entradas(string query, string seleccion, string opcion)
         {
-            return View();
+
+            if (!string.IsNullOrEmpty(query))
+            {
+                int day = int.Parse(query);
+
+                if (seleccion.Equals("0"))
+                    return View(db.EntradaMercancias.Where(e => e.Producto.Nombre == query));
+                else if (seleccion.Equals("1"))
+                    return View(db.EntradaMercancias.Where(e => e.Fecha.Value.Day == day));
+                else
+                    return View(db.EntradaMercancias.Where(e => e.Proveedore.Nombre == query));
+            }
+
+            return View(db.EntradaMercancias.ToList());
         }
         public ActionResult Facturaciones()
         {

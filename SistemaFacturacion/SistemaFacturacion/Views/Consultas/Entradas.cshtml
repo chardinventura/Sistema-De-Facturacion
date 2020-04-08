@@ -1,7 +1,61 @@
-﻿
+﻿@model IEnumerable<SistemaFacturacion.Models.EntradaMercancia>
+
 @{
-    ViewBag.Title = "Entradas";
+    ViewBag.Title = "Consulta de clientes";
 }
 
-<h2>Entradas</h2>
+<h2>Clientes</h2>
 
+@using (Html.BeginForm())
+{
+    <P>
+        @Html.TextBox("query")
+        @Html.DropDownList("seleccion", new List<SelectListItem>
+    {
+        new SelectListItem{Text = "Producto", Value = "0", Selected = true},
+        new SelectListItem{Text = "Fecha", Value = "1",},
+        new SelectListItem{Text = "Proveedor", Value = "2"}
+    })
+        Ver sumatoria, conteo y promedio de los resultados.
+        Si @Html.RadioButton("opcion", "0", true)
+        No @Html.RadioButton("opcion", "1")
+        <input type="submit" value="Buscar" />
+    </P>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.proveedor_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.producto_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.proveedor_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.producto_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+        </tr>
+    }
+
+</table>
