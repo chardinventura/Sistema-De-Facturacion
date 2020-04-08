@@ -52,8 +52,10 @@ namespace SistemaFacturacion.Controllers
         public ActionResult Create([Bind(Include = "Id,producto_id,cliente_id,Cantidad,Fecha")] Compra compra)
         {
             var existenciaStock = db.Stocks.SingleOrDefault(s => s.producto_id == compra.producto_id);
+            var existenciaCompra = db.Compras.Where(c => c.producto_id == compra.producto_id && c.cliente_id == compra.cliente_id).Count();
+            var cantidadValida = db.Stocks.SingleOrDefault(s => s.producto_id == compra.producto_id).Cantidad;
 
-            if (ModelState.IsValid && db.Compras.Where(c => c.producto_id == compra.producto_id && c.cliente_id == compra.cliente_id).Count() == 0)
+            if (ModelState.IsValid &&  existenciaCompra != 0 && cantidadValida >= compra.Cantidad)
             {
                 if (existenciaStock != null)
                     existenciaStock.Cantidad -= compra.Cantidad;
@@ -62,6 +64,16 @@ namespace SistemaFacturacion.Controllers
                 db.Compras.Add(compra);
                 db.SaveChanges();
                 return RedirectToAction("Index", "Facturacions");
+            }
+
+            if(cantidadValida < compra.Cantidad)
+            {
+                ViewBag.cliente_id = new SelectList(db.Clientes, "Id", "Nombre", compra.cliente_id);
+                ViewBag.producto_id = new SelectList(db.Productos, "Id", "Nombre", compra.producto_id);
+
+                ViewBag.error = "Error, cantidad elevada, cantidad disponible es " + cantidadValida;
+
+                return View(compra);
             }
 
             if (db.Compras.Where(c => c.producto_id == compra.producto_id && c.cliente_id == compra.cliente_id).Count() != 0)
