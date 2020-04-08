@@ -1,25 +1,24 @@
 ﻿@model IEnumerable<SistemaFacturacion.Models.Cliente>
 
-<h2>Productos</h2>
+<h2>Clientes</h2>
 
 @using (Html.BeginForm())
 {
-<P>
-    @Html.TextBox("query")
-    @Html.DropDownList("seleccion", new List<SelectListItem>
-{
-    new SelectListItem{Text = "Todos", Value = "0", Selected = true},
-    new SelectListItem{Text = "Premium", Value = "1",},
-    new SelectListItem{Text = "Regular", Value = "2"}
-})
-    @Html.RadioButton("opcion", "0", true)Nombre
-    @Html.RadioButton("opcion", "1")Categoria
-    <input type="submit" value="Buscar" />
-</P>
+    <P>
+        @Html.TextBox("query")
+        @Html.DropDownList("seleccion", new List<SelectListItem>
+    {
+        new SelectListItem{Text = "Todos", Value = "0", Selected = true},
+        new SelectListItem{Text = "Premium", Value = "1",},
+        new SelectListItem{Text = "Regular", Value = "2"}
+    })
+        @Html.RadioButton("opcion", "0", true)Nombre
+        @Html.RadioButton("opcion", "1")Categoria
+        <input type="submit" value="Buscar" />
+    </P>
 }
 
-
-<table class="table">
+<table class="table" id="invoice">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Cedula)
@@ -61,3 +60,5 @@
     }
 
 </table>
+
+<button onclick="generatePDF()" style="float:right;">Generar PDF</button>

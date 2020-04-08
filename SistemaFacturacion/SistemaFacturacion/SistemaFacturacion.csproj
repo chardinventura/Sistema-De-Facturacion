@@ -169,7 +169,57 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="App_Browsers\qt.browser" />
+    <Content Include="html2pdf.js\.babelrc" />
+    <Content Include="html2pdf.js\.git\config" />
+    <Content Include="html2pdf.js\.git\description" />
+    <Content Include="html2pdf.js\.git\HEAD" />
+    <Content Include="html2pdf.js\.git\hooks\applypatch-msg.sample" />
+    <Content Include="html2pdf.js\.git\hooks\commit-msg.sample" />
+    <Content Include="html2pdf.js\.git\hooks\fsmonitor-watchman.sample" />
+    <Content Include="html2pdf.js\.git\hooks\post-update.sample" />
+    <Content Include="html2pdf.js\.git\hooks\pre-applypatch.sample" />
+    <Content Include="html2pdf.js\.git\hooks\pre-commit.sample" />
+    <Content Include="html2pdf.js\.git\hooks\pre-merge-commit.sample" />
+    <Content Include="html2pdf.js\.git\hooks\pre-push.sample" />
+    <Content Include="html2pdf.js\.git\hooks\pre-rebase.sample" />
+    <Content Include="html2pdf.js\.git\hooks\pre-receive.sample" />
+    <Content Include="html2pdf.js\.git\hooks\prepare-commit-msg.sample" />
+    <Content Include="html2pdf.js\.git\hooks\update.sample" />
+    <Content Include="html2pdf.js\.git\index" />
+    <Content Include="html2pdf.js\.git\info\exclude" />
+    <Content Include="html2pdf.js\.git\logs\HEAD" />
+    <Content Include="html2pdf.js\.git\logs\refs\heads\master" />
+    <Content Include="html2pdf.js\.git\logs\refs\remotes\origin\HEAD" />
+    <Content Include="html2pdf.js\.git\objects\pack\pack-6d008035c80722479b65bdf63487564a640f2552.idx" />
+    <Content Include="html2pdf.js\.git\objects\pack\pack-6d008035c80722479b65bdf63487564a640f2552.pack" />
+    <Content Include="html2pdf.js\.git\packed-refs" />
+    <Content Include="html2pdf.js\.git\refs\heads\master" />
+    <Content Include="html2pdf.js\.git\refs\remotes\origin\HEAD" />
+    <Content Include="html2pdf.js\.npmignore" />
+    <Content Include="html2pdf.js\bower.json" />
+    <Content Include="html2pdf.js\LICENSE" />
+    <Content Include="html2pdf.js\package-lock.json" />
+    <Content Include="html2pdf.js\package.json" />
+    <Content Include="html2pdf.js\README.md" />
+    <Content Include="html2pdf.js\_config.yml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="html2pdf.js\.gitignore" />
+    <Content Include="html2pdf.js\dist\html2pdf.bundle.js" />
+    <Content Include="html2pdf.js\dist\html2pdf.bundle.min.js" />
+    <Content Include="html2pdf.js\dist\html2pdf.js" />
+    <Content Include="html2pdf.js\dist\html2pdf.min.js" />
+    <Content Include="html2pdf.js\dist\include\html2pdf.es.js" />
+    <Content Include="html2pdf.js\dist\require\html2pdf.cjs.js" />
+    <Content Include="html2pdf.js\gulpfile.js" />
+    <Content Include="html2pdf.js\rollup.config.js" />
+    <Content Include="html2pdf.js\src\index.js" />
+    <Content Include="html2pdf.js\src\plugin\hyperlinks.js" />
+    <Content Include="html2pdf.js\src\plugin\jspdf-plugin.js" />
+    <Content Include="html2pdf.js\src\plugin\pagebreaks.js" />
+    <Content Include="html2pdf.js\src\utils.js" />
+    <Content Include="html2pdf.js\src\worker.js" />
+    <Content Include="html2pdf.js\test\manual\pagebreaks.html" />
+    <Content Include="html2pdf.js\test\manual\template.html" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -232,6 +282,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="html2pdf.js\.git\objects\info\" />
+    <Folder Include="html2pdf.js\.git\refs\tags\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

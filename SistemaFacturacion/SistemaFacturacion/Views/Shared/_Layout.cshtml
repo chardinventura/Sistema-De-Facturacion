@@ -6,6 +6,8 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <script src="~/html2pdf.js/dist/html2pdf.bundle.min.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -21,12 +23,12 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Productos", "About", "Home")</li>
-                    <li>@Html.ActionLink("Clientes", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Proveedores", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Entradas", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Facturacion", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Consultas", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Productos", "Index", "Productos")</li>
+                    <li>@Html.ActionLink("Clientes", "Index", "Clientes")</li>
+                    <li>@Html.ActionLink("Proveedores", "Index", "Proveedores")</li>
+                    <li>@Html.ActionLink("Entradas", "Create", "EntradaMercancias")</li>
+                    <li>@Html.ActionLink("Facturacion", "Create", "Facturacions")</li>
+                    <li>@Html.ActionLink("Consultas", "Index", "Consultas")</li>
                 </ul>
             </div>
         </div>
@@ -38,5 +40,12 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script>
+        function generatePDF() {
+            var element = document.getElementById('invoice');
+            html2pdf(element);
+        }
+    </script>
 </body>
 </html>
