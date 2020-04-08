@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Consultas";
+}
+
+<div class="jumbotron">
+    <h1>Consultas</h1>
+    
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Productos</h2>
+        <p>
+            - Por nombre
+        </p>
+        <p>@Html.ActionLink("Consultar", "Productos", "", new {@class="btn btn-default"})</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Clientes</h2>
+        <p>
+            - Por nombre<br />
+            - Por categoria
+        </p>
+        <p>@Html.ActionLink("Consultar", "Clientes", "", new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Proveedores</h2>
+        <p>
+            - Por nombre<br />
+            - Por email
+        </p>
+        <p>@Html.ActionLink("Consultar", "Proveedores", "", new {@class="btn btn-default"})</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Facturaciones</h2>
+        <p>
+            - Por producto<br />
+            - Por fecha<br />
+            - Por proveedor
+        </p>
+        <p>@Html.ActionLink("Consultar", "Facturaciones", "", new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Entradas</h2>
+        <p>
+            - Por fecha<br />
+            - Por cliente
+        </p>
+        <p>@Html.ActionLink("Consultar", "Entradas", "", new { @class = "btn btn-default" })</p>
+    </div>
+</div>

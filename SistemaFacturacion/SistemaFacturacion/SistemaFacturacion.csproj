@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\ComprasController.cs" />
+    <Compile Include="Controllers\ConsultasController.cs" />
     <Compile Include="Controllers\EntradaMercanciasController.cs" />
     <Compile Include="Controllers\FacturacionsController.cs" />
     <Compile Include="Controllers\ProductoesController.cs" />
@@ -210,6 +211,12 @@
     <Content Include="Views\Facturacions\Details.cshtml" />
     <Content Include="Views\Facturacions\Edit.cshtml" />
     <Content Include="Views\Facturacions\Index.cshtml" />
+    <Content Include="Views\Consultas\Index.cshtml" />
+    <Content Include="Views\Consultas\Productos.cshtml" />
+    <Content Include="Views\Consultas\Clientes.cshtml" />
+    <Content Include="Views\Consultas\Proveedores.cshtml" />
+    <Content Include="Views\Consultas\Entradas.cshtml" />
+    <Content Include="Views\Consultas\Facturaciones.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
