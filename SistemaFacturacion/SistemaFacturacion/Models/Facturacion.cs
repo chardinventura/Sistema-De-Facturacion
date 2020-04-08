@@ -5,6 +5,7 @@ namespace SistemaFacturacion.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Linq;
 
     [Table("Facturacion")]
     public partial class Facturacion
@@ -15,7 +16,7 @@ namespace SistemaFacturacion.Models
 
         public decimal? Descuento { get; set; }
 
-        public decimal? Monto { get; set; }
+        public decimal Monto { get; set; }
 
         public DateTime? Fecha { get; set; }
 
@@ -34,6 +35,28 @@ namespace SistemaFacturacion.Models
             cantidad += (cantidad * 0.18m);
 
             return cantidad;
+        }
+
+        public int conteo(List<Facturacion> list)
+        {
+            return list.Count;
+        }
+        public decimal sumatoria(List<Facturacion> list)
+        {
+            return list.Sum(f => f.Monto);
+        }
+
+        public decimal promedio(List<Facturacion> list)
+        {
+            return list.Sum(f => f.Monto) / list.Count;
+        }
+        public decimal valorMinimo(List<Facturacion> list)
+        {
+            return list.Min(f => f.Monto);
+        }
+        public decimal valorMaximo(List<Facturacion> list)
+        {
+            return list.Max(f => f.Monto);
         }
     }
 }

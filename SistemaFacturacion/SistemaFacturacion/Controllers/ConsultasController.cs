@@ -12,6 +12,7 @@ namespace SistemaFacturacion.Controllers
     {
         private ModelSF db = new ModelSF();
         private EntradaMercancia entradaMercancia = new EntradaMercancia();
+        private Facturacion facturacion = new Facturacion();
 
         // GET: Consultas
         public ActionResult Index()
@@ -76,35 +77,77 @@ namespace SistemaFacturacion.Controllers
             {
                 if (seleccion.Equals("0"))
                 {
-                    ViewBag.sumatoria = entradaMercancia.sumatoria(filtroProducto.ToList());
-                    ViewBag.promedio = entradaMercancia.promedio(filtroProducto.ToList());
-                    ViewBag.conteo = entradaMercancia.conteo(filtroProducto.ToList());
-
+                    if(opcion.Equals("0"))
+                    {
+                        ViewBag.sumatoria = entradaMercancia.sumatoria(filtroProducto.ToList());
+                        ViewBag.promedio = entradaMercancia.promedio(filtroProducto.ToList());
+                        ViewBag.conteo = entradaMercancia.conteo(filtroProducto.ToList());
+                    }
+                    
                     return View(filtroProducto);
                 }
                 else if (seleccion.Equals("1"))
                 {
-                    ViewBag.sumatoria = entradaMercancia.sumatoria(filtroFecha.ToList());
-                    ViewBag.promedio = entradaMercancia.promedio(filtroFecha.ToList());
-                    ViewBag.conteo = entradaMercancia.conteo(filtroFecha.ToList());
+                    if (opcion.Equals("0"))
+                    {
+                        ViewBag.sumatoria = entradaMercancia.sumatoria(filtroFecha.ToList());
+                        ViewBag.promedio = entradaMercancia.promedio(filtroFecha.ToList());
+                        ViewBag.conteo = entradaMercancia.conteo(filtroFecha.ToList());
+                    }
 
                     return View(filtroFecha);
                 }
                 else
                 {
-                    ViewBag.sumatoria = entradaMercancia.sumatoria(filtroProveedor.ToList());
-                    ViewBag.promedio = entradaMercancia.promedio(filtroProveedor.ToList());
-                    ViewBag.conteo = entradaMercancia.conteo(filtroProveedor.ToList());
-
+                    if (opcion.Equals("0"))
+                    {
+                        ViewBag.sumatoria = entradaMercancia.sumatoria(filtroProveedor.ToList());
+                        ViewBag.promedio = entradaMercancia.promedio(filtroProveedor.ToList());
+                        ViewBag.conteo = entradaMercancia.conteo(filtroProveedor.ToList());
+                    }
+                    
                     return View(filtroProveedor);
                 }
             }
 
             return View(db.EntradaMercancias.ToList());
         }
-        public ActionResult Facturaciones()
+        public ActionResult Facturaciones(string query, string seleccion, string opcion)
         {
-            return View();
+            var filtroFecha = db.Facturacions.Where(f => f.Fecha.Value.Day == 12);
+            var filtroCliente = db.Facturacions.Where(f => f.Cliente.Nombre == query);
+
+            if (!string.IsNullOrEmpty(query))
+            {
+                if (seleccion.Equals("0"))
+                {
+                    if (opcion.Equals("0"))
+                    {
+                        ViewBag.sumatoria = facturacion.sumatoria(filtroCliente.ToList());
+                        ViewBag.promedio = facturacion.promedio(filtroCliente.ToList());
+                        ViewBag.conteo = facturacion.conteo(filtroCliente.ToList());
+                        ViewBag.min = facturacion.valorMinimo(filtroCliente.ToList());
+                        ViewBag.max = facturacion.valorMaximo(filtroCliente.ToList());
+                    }
+
+                    return View(filtroCliente);
+                }
+                else if (seleccion.Equals("1"))
+                {
+                    if (opcion.Equals("0"))
+                    {
+                        ViewBag.sumatoria = facturacion.sumatoria(filtroFecha.ToList());
+                        ViewBag.promedio = facturacion.promedio(filtroFecha.ToList());
+                        ViewBag.conteo = facturacion.conteo(filtroFecha.ToList());
+                        ViewBag.min = facturacion.valorMinimo(filtroFecha.ToList());
+                        ViewBag.max = facturacion.valorMaximo(filtroFecha.ToList());
+                    }
+
+                    return View(filtroFecha);
+                }
+            }
+
+            return View(db.Facturacions.ToList());
         }
     }
 }
