@@ -11,6 +11,7 @@ namespace SistemaFacturacion.Controllers
     public class ConsultasController : Controller
     {
         private ModelSF db = new ModelSF();
+        private EntradaMercancia entradaMercancia = new EntradaMercancia();
 
         // GET: Consultas
         public ActionResult Index()
@@ -67,17 +68,36 @@ namespace SistemaFacturacion.Controllers
         }
         public ActionResult Entradas(string query, string seleccion, string opcion)
         {
+            var filtroProducto = db.EntradaMercancias.Where(e => e.Producto.Nombre == query);
+            var filtroFecha = db.EntradaMercancias.Where(e => e.Fecha.Value.Day == 12);
+            var filtroProveedor = db.EntradaMercancias.Where(e => e.Proveedore.Nombre == query);
 
             if (!string.IsNullOrEmpty(query))
             {
-                int day = int.Parse(query);
-
                 if (seleccion.Equals("0"))
-                    return View(db.EntradaMercancias.Where(e => e.Producto.Nombre == query));
+                {
+                    ViewBag.sumatoria = entradaMercancia.sumatoria(filtroProducto.ToList());
+                    ViewBag.promedio = entradaMercancia.promedio(filtroProducto.ToList());
+                    ViewBag.conteo = entradaMercancia.conteo(filtroProducto.ToList());
+
+                    return View(filtroProducto);
+                }
                 else if (seleccion.Equals("1"))
-                    return View(db.EntradaMercancias.Where(e => e.Fecha.Value.Day == day));
+                {
+                    ViewBag.sumatoria = entradaMercancia.sumatoria(filtroFecha.ToList());
+                    ViewBag.promedio = entradaMercancia.promedio(filtroFecha.ToList());
+                    ViewBag.conteo = entradaMercancia.conteo(filtroFecha.ToList());
+
+                    return View(filtroFecha);
+                }
                 else
-                    return View(db.EntradaMercancias.Where(e => e.Proveedore.Nombre == query));
+                {
+                    ViewBag.sumatoria = entradaMercancia.sumatoria(filtroProveedor.ToList());
+                    ViewBag.promedio = entradaMercancia.promedio(filtroProveedor.ToList());
+                    ViewBag.conteo = entradaMercancia.conteo(filtroProveedor.ToList());
+
+                    return View(filtroProveedor);
+                }
             }
 
             return View(db.EntradaMercancias.ToList());
