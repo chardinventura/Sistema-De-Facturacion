@@ -44,7 +44,7 @@ namespace SistemaFacturacion.Controllers
 
                 db.Facturacions.Add(facturacion);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Clientes");
+                return RedirectToAction("Index", "Home");
             }
 
             ViewBag.cliente_id = new SelectList(db.Clientes, "Id", "Cedula", facturacion.cliente_id);

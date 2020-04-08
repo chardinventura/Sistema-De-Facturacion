@@ -28,7 +28,7 @@
 @ViewBag.min
 @ViewBag.max
 
-<table class="table">
+<table class="table" id="invoice">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Cliente.Nombre)
@@ -64,3 +64,4 @@
     }
 
 </table>
+<button onclick="generatePDF()" style="float:right;">Generar PDF</button>

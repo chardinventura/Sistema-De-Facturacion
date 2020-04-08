@@ -22,20 +22,23 @@
         <input type="submit" value="Buscar" />
     </P>
 }
-      
-<div>
-    Sumatoria: @ViewBag.sumatoria<br />
-    Promedio: @ViewBag.promedio<br />
-    Conteo: @ViewBag.conteo
-</div>
 
-<table class="table">
+@if (ViewBag.conteo != null)
+{
+    <div>
+        Sumatoria: @ViewBag.sumatoria<br />
+        Promedio: @ViewBag.promedio<br />
+        Conteo: @ViewBag.conteo
+    </div>
+}
+
+<table class="table" id="invoice">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.proveedor_id)
+            @Html.DisplayName("Proveedores")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.producto_id)
+            @Html.DisplayName("Productos")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Cantidad)
@@ -50,10 +53,10 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.proveedor_id)
+                @Html.DisplayFor(modelItem => item.Proveedore.Nombre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.producto_id)
+                @Html.DisplayFor(modelItem => item.Producto.Nombre)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Cantidad)
@@ -65,3 +68,4 @@
     }
 
 </table>
+<button onclick="generatePDF()" style="float:right;">Generar PDF</button>

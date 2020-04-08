@@ -39,7 +39,7 @@ namespace SistemaFacturacion.Controllers
         // GET: Compras/Create
         public ActionResult Create()
         {
-            ViewBag.cliente_id = new SelectList(db.Clientes, "Id", "Cedula");
+            ViewBag.cliente_id = new SelectList(db.Clientes, "Id", "Nombre");
             ViewBag.producto_id = new SelectList(db.Productos, "Id", "Nombre");
             return View();
         }
@@ -51,15 +51,29 @@ namespace SistemaFacturacion.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,producto_id,cliente_id,Cantidad,Fecha")] Compra compra)
         {
-            if (ModelState.IsValid)
+            var existenciaStock = db.Stocks.SingleOrDefault(s => s.producto_id == compra.producto_id);
+
+            if (ModelState.IsValid && db.Compras.Where(c => c.producto_id == compra.producto_id && c.cliente_id == compra.cliente_id).Count() == 0)
             {
+                if (existenciaStock != null)
+                    existenciaStock.Cantidad -= compra.Cantidad;
+
                 compra.Fecha = DateTime.Now;
                 db.Compras.Add(compra);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Facturacions");
             }
 
-            ViewBag.cliente_id = new SelectList(db.Clientes, "Id", "Cedula", compra.cliente_id);
+            if (db.Compras.Where(c => c.producto_id == compra.producto_id && c.cliente_id == compra.cliente_id).Count() != 0)
+            {
+                ViewBag.cliente_id = new SelectList(db.Clientes, "Id", "Nombre", compra.cliente_id);
+                ViewBag.producto_id = new SelectList(db.Productos, "Id", "Nombre", compra.producto_id);
+
+                ViewBag.error = "Error, ya habia comprado el producto " + db.Productos.SingleOrDefault(p => p.Id == compra.producto_id).Nombre;
+
+                return View(compra);
+            }
+            ViewBag.cliente_id = new SelectList(db.Clientes, "Id", "Nombre", compra.cliente_id);
             ViewBag.producto_id = new SelectList(db.Productos, "Id", "Nombre", compra.producto_id);
             return View(compra);
         }
